@@ -1,0 +1,20 @@
+# Ignorar arquivos compilados (Maven)
+target/
+*.class
+*.jar
+*.war
+
+# Ignorar configurações da IDE (IntelliJ / Eclipse / VSCode)
+.idea/
+*.iml
+.vscode/
+*.classpath
+*.project
+*.settings/
+
+# Ignorar arquivos do Sistema Operacional
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
