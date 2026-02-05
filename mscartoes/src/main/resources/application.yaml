@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: mscartoes
+server:
+  port: 0
+
+eureka:
+  client:
+    service-url: #estamos setando onde iremos nos registrar - servidor eureka (config de client)
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}} #registra os ms com nomes diferentes
