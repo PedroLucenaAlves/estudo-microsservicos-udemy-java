@@ -45,9 +45,10 @@ public class CartoesController {
     @GetMapping( params = "cpf")
     public ResponseEntity<List<CartoesPorClienteResponse>> getCartoesByCliente(@RequestParam("cpf") String cpf){
         List<ClienteCartao> lista = clienteCartaoService.listCartoesByCpf(cpf);
-        List<CartoesPorClienteResponse> resultList = lista.stream()
-                .map(CartoesPorClienteResponse::fromModel)
-                .collect(Collectors.toList());
+        List<CartoesPorClienteResponse> resultList = lista
+                .stream()
+                .map(CartoesPorClienteResponse::fromModel) //pega cada objeto ClienteCartao e transforma no nosso DTO
+                .collect(Collectors.toList()); //armazena os objetos transformados numa lista
         return ResponseEntity.ok(resultList);
     }
 
