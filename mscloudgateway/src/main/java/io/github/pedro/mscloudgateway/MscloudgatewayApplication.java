@@ -17,11 +17,16 @@ public class MscloudgatewayApplication {
 		SpringApplication.run(MscloudgatewayApplication.class, args);
 	}
 
+	//o gateway funciona como um balanceador de cargas, entao independente das portas dos ms, todas responderam
+	//a requisicao que eu fizer ao gateway
+	//exp: se meu msclientes esta na porta 3560 e o mscartoes na 3578 e o gateway na 8080
+	//toda req que eu fizer nos endpoints dos ms com a porta 8080 (gateway) sera atendida por causa do Load Balancer
 	@Bean
 	public RouteLocator routes(RouteLocatorBuilder builder){
 		return builder
 				.routes()
 				.route(r -> r.path("/clientes/**").uri("lb://msclientes")) //toda request para /clientes redireciona para o load balancer e para o msclientes
+				.route(r -> r.path("/cartoes/**").uri("lb://mscartoes")) //toda request para /clientes redireciona para o load balancer e para o mscartoes
 				.build();
 	}
 
