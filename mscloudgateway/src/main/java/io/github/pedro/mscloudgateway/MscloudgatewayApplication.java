@@ -26,7 +26,8 @@ public class MscloudgatewayApplication {
 		return builder
 				.routes()
 				.route(r -> r.path("/clientes/**").uri("lb://msclientes")) //toda request para /clientes redireciona para o load balancer e para o msclientes
-				.route(r -> r.path("/cartoes/**").uri("lb://mscartoes")) //toda request para /clientes redireciona para o load balancer e para o mscartoes
+				.route(r -> r.path("/cartoes/**").uri("lb://mscartoes")) //toda request para /... redireciona para o load balancer e para o ms...
+				.route(r -> r.path("/avaliacoes-credito/**").uri("lb://msavaliadorcredito")) //toda request para /... redireciona para o load balancer e para o ms...
 				.build();
 	}
 
