@@ -12,11 +12,11 @@ public class CartaSaveRequest {
     private String nome;
     private BandeiraCartao bandeira;
     private BigDecimal renda;
-    private BigDecimal limte;
+    private BigDecimal limite;
 
     //TRANSFORMA O DTO EM UMA ENTIDADE/objeto tipo CARTAO
     public Cartao toModel(){
-        return new Cartao(nome, bandeira, renda, limte);
+        return new Cartao(nome, bandeira, renda, limite);
     }
 
 }
