@@ -1,6 +1,12 @@
 spring:
   application:
     name: msavaliadorcredito
+    rabbitmq: #broker
+      host: localhost
+      port: 5672
+      username: guest
+      password: guest
+
 server:
   port: 0
 
@@ -10,3 +16,8 @@ eureka:
       defaultZone: http://localhost:8761/eureka
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}} #registra os ms com nomes diferentes
+
+#filas do nosso rabbitmq
+mq:
+  queues:
+    emissao-cartoes: emissao-cartoes
